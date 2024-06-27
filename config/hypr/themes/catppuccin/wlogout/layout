@@ -1,0 +1,35 @@
+{
+    "label" : "lock",
+    "action" : "hyprlock --config $HOME/.config/hypr/themes/catppuccin/hypr/hyprlock.conf",
+    "text" : "Lock"
+}
+
+{
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Hibernate"
+}
+
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit",
+    "text" : "Logout"
+}
+
+{
+    "label" : "shutdown",
+    "action" : "shutdown now",
+    "text" : "Shutdown"
+}
+
+{
+    "label" : "suspend",
+    "action" : "loginctl suspend",
+    "text" : "Suspend"
+}
+
+{
+    "label" : "reboot",
+    "action" : "reboot",
+    "text" : "Reboot"
+}

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Tlauncher
+Exec=java -jar /home/roman/.config/tlauncher/TLauncher.jar
+Terminal=false
+Type=Application
+Icon=minecraft
+StartupWMClass=Tlauncher
+Comment=Minecraft launcher
+Categories=Game;

@@ -1,0 +1,134 @@
+* {
+	border-radius: 10;
+	font-family: SF Pro Display, Symbols Nerd Font;
+	font-weight: bold;
+	font-size: 12px;
+	min-height: 25px;
+  }
+  
+  window#waybar {
+	background: transparent;
+  }
+  
+  window#waybar.empty #window {
+	background-color: transparent;
+	border: none;
+	transition: none;
+  }
+
+  tooltip {
+    background-color: #1e1e2e;
+    border: 1px solid #45475a; 
+    border-radius: 6px;     
+    padding: 5px;    
+    font-family: JetBrainsMono-Bold, Symbols Nerd Font; 
+    font-size: 12px; 
+    font-weight: bold;   
+}
+  
+  #custom-apps, #workspaces, #custom-notifications {
+	border-radius: 6px;
+	background-color: #1e1e2e;
+	border: 1px solid #45475a;
+	color: #b4befe;
+	margin-top: 6px;
+	margin-right: 15px;
+	padding-top: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+  }
+  
+  #custom-apps, #custom-notifications {
+	font-size: 20px;
+	margin-left: 15px;
+	color: #b4befe;
+	padding-left: 8px;
+	padding-right: 8px;
+  }
+  
+  #custom-notifications {
+	margin-left: 0px;
+	margin-right: 5px;
+  }
+  
+  #custom-apps {
+	margin-left: 5px;
+  }
+  
+  #workspaces button {
+	background: #1e1e2e;
+	color: #b4befe;
+	padding: 0 10;
+  }
+  
+  #workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+  }
+
+  #pulseaudio, #network, #bluetooth {
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 0px;
+  }
+  
+  #clock, #window, #tray, #custom-spotify, #custom-weather, #language, #custom-power, #custom-updates {
+	border-radius: 6px;
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 15px;
+  }
+  
+  #custom-power-left-end {
+	background-color: #1e1e2e;
+	border: 1px solid #45475a;
+	border-right: none;
+	border-radius: 6px 0 0 6px;
+	margin-top: 6px;
+  }
+  
+  #custom-shutdown, #custom-logout, #custom-reboot, #custom-firmware, #custom-suspend {
+	background-color: #1e1e2e;
+	color: #b4befe;
+	border: 1px solid #45475a;
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+  }
+  
+  #custom-divider {
+	background-color: #1e1e2e;
+	color: #b4befe;
+	margin-top: 6px;
+	border-top: 1px solid #45475a;
+	border-bottom: 1px solid #45475a;
+  }
+  
+  #custom-firmware {
+	border-radius: 0;
+	border-right: none;
+	border-left: none;
+  }
+  
+  #custom-logout, #custom-reboot, #custom-suspend {
+	border-left: none;
+	border-right: none;
+  }
+  
+  #custom-shutdown {
+	border-radius: 0 6px 6px 0;
+	border-left: none;
+	margin-right: 15px;
+  }
+  
+  #window {
+	transition: linear 0.3s;
+  }

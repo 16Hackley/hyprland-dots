@@ -1,0 +1,12 @@
+2024-06-27 19:29:27.575 [info] Extension host with pid 332851 started
+2024-06-27 19:29:27.575 [info] Skipping acquiring lock for /home/roman/.config/Code/User/workspaceStorage/a74d32f8a30dc3afb8497b705c3be014.
+2024-06-27 19:29:27.643 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-06-27 19:29:27.647 [info] ExtensionService#_doActivateExtension vscode.css-language-features, startup: false, activationEvent: 'onLanguage:css'
+2024-06-27 19:29:27.924 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-06-27 19:29:27.936 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-06-27 19:29:27.950 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-06-27 19:29:27.991 [info] Eager extensions activated
+2024-06-27 19:29:28.012 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 19:29:28.013 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 19:29:47.467 [info] Extension host terminating: renderer closed the MessagePort
+2024-06-27 19:29:47.476 [info] Extension host with pid 332851 exiting with code 0

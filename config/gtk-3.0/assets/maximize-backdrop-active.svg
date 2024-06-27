@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 50 50"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>Qt SVG Document</title>
+<desc>Generated with Qt</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,0,50)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+opacity="0.003" >
+<rect x="0" y="-16" width="16" height="16"/>
+</g>
+
+<g fill="#48d151" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,0,50)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+>
+<circle cx="8" cy="-8" r="6.85"/>
+</g>
+
+<g fill="#0f7901" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-50,-6.25e-06)"
+font-family="sans-serif" font-size="12" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="nonzero" d="M21.5058,5.00039 C21.197,4.98745 20.9574,5.30724 21.0064,5.60187 L21.0064,8.5019 C20.9925,8.84992 21.4025,9.11341 21.7126,8.95301 C21.8891,8.85926 22.0089,8.68936 22.1554,8.55658 L24.8555,5.8538 C25.1128,5.61888 25.0092,5.14986 24.6857,5.03554 C24.536,4.98163 24.3756,5.00912 24.2195,5.00038 L21.5058,5.00039 M26.5293,7.00014 C26.4475,6.99254 26.3649,7.00694 26.2874,7.047 C26.1109,7.14075 25.9911,7.3087 25.8446,7.44148 L23.1445,10.1462 C22.8872,10.3811 22.9908,10.8502 23.3143,10.9645 C23.464,11.0184 23.6225,10.9909 23.7786,10.9996 L26.4942,10.9996 C26.803,11.0126 27.0426,10.6908 26.9936,10.3962 L26.9936,7.49811 C27.004,7.23709 26.7748,7.02302 26.5293,7.00013 L26.5293,7.00014"/>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-121.875,50)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+opacity="0.003" >
+<path vector-effect="none" fill-rule="nonzero" d="M54,-8 C54,-4.13401 50.866,-1 47,-1 C43.134,-1 40,-4.13401 40,-8 C40,-11.866 43.134,-15 47,-15 C50.866,-15 54,-11.866 54,-8 "/>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-121.875,50)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+opacity="0.5" >
+<path vector-effect="none" fill-rule="nonzero" d="M53.85,-8 C53.85,-4.21685 50.7832,-1.15 47,-1.15 C43.2168,-1.15 40.15,-4.21685 40.15,-8 C40.15,-11.7832 43.2168,-14.85 47,-14.85 C50.7832,-14.85 53.85,-11.7832 53.85,-8 "/>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

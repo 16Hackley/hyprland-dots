@@ -1,0 +1,19 @@
+2024-06-27 19:39:28.108 [info] Extension host with pid 336687 started
+2024-06-27 19:39:28.108 [info] Skipping acquiring lock for /home/roman/.config/Code/User/workspaceStorage/6c7a42b259a5dea4646d89dc99573ce2.
+2024-06-27 19:39:28.131 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-06-27 19:39:28.144 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-06-27 19:39:28.175 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-06-27 19:39:28.226 [info] Eager extensions activated
+2024-06-27 19:39:28.246 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 19:39:28.247 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 19:39:41.815 [info] Extension host terminating: renderer closed the MessagePort
+2024-06-27 19:39:41.822 [info] Extension host with pid 336687 exiting with code 0
+2024-06-27 19:39:42.351 [info] Extension host with pid 336787 started
+2024-06-27 19:39:42.362 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-06-27 19:39:42.365 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-06-27 19:39:42.383 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-06-27 19:39:42.417 [info] Eager extensions activated
+2024-06-27 19:39:42.426 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 19:39:42.428 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 19:39:47.106 [info] Extension host terminating: renderer closed the MessagePort
+2024-06-27 19:39:47.113 [info] Extension host with pid 336787 exiting with code 0

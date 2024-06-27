@@ -1,0 +1,242 @@
+CRE=$(tput setaf 1)
+CYE=$(tput setaf 3)
+CGR=$(tput setaf 2)
+CBL=$(tput setaf 4)
+BLD=$(tput bold)
+CNC=$(tput sgr0)
+
+
+logo () {
+
+    local text="${1:?}"
+    echo -en "Hyprland Dotfiles by HACKLEY\n\n"
+    printf ' %s [%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}" "${CNC}" "${CRE}" "${CNC}"
+}
+
+if [ "$(id -u)" = 0 ]; then
+    echo "This script MUST NOT be run as root user."
+    exit 1
+fi
+
+home_dir=$HOME
+current_dir=$(pwd)
+
+if [ "$current_dir" != "$home_dir" ]; then
+    printf "%s%sThe script must be executed from the HOME directory.%s\n" "${BLD}" "${CYE}" "${CNC}"
+    exit 1
+fi
+
+printf "%s%sAdding extra spice to pacman...%s\n" "${BLD}" "${CBL}" "${CNC}"
+sudo sed -i "/^#Color/c\Color\nILoveCandy
+/^#VerbosePkgLists/c\VerbosePkgLists
+/^#ParallelDownloads/c\ParallelDownloads = 5" /etc/pacman.conf
+sudo sed -i '/^#\[multilib\]/,+1 s/^#//' /etc/pacman.conf
+
+sudo pacman -Syyu
+sudo pacman -Fy
+
+logo "Installing pacman packages"
+dependencies=(pavucontrol nemo htop links fastfetch mpv unzip ttf-nerd-fonts-symbols imagemagick \
+              pipewire pipewire-alsa pipewire-audio pipewire-jack pipewire-pulse gst-plugin-pipewire bluez bluez-utils \ 
+              numlockx ttf-jetbrains-mono-nerd pamixer waybar hyprland playerctl \ 
+              putty filezilla gamescope qt6-svg qt6-declarative fish feh base-devel gdb ninja \ 
+              gcc libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender \
+              pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland cmake wlroots mesa git \ 
+              meson polkit xdg-desktop-portal-wlr transmission-gtk pulseaudio python imv mpv nemo grim slurp jq wofi \ 
+              htop ttf-nerd-fonts-symbols mousepad
+              ark zip unzip fastfetch discord telegram-desktop gamemode mangohud lib32-mangohud mesa lib32-mesa vulkan-radeon \
+              lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader wine-staging \
+              noto-fonts-emoji htop steam mpv feh gnome-disk-utility firefox \ 
+              ttf-inconsolata ttf-terminus-nerd imagemagick lxappearance lib32-gamemode xf86-video-amdgpu blueman \ 
+              gamescope alacritty starship polkit-gnome ttf-jetbrains-mono glibc redis postgresql)
+
+paru_dependencies=(spotify vesktop heroic-games-launcher hyprlock swaync  swww wlogout spicetify-cli spicetify-marketplace-bin flameshot-git)
+
+is_installed() {
+    pacman -Q "$1" &> /dev/null
+}
+
+paru_is_installed() {
+    paru -Q "$1" &> /dev/null
+}
+
+if command -v paru >/dev/null 2>&1; then
+    printf "%s%sParu is already installed%s\n" "${BLD}" "${CGR}" "${CNC}"
+else
+    printf "%s%sInstalling paru%s\n" "${BLD}" "${CBL}" "${CNC}"
+    {
+        cd "$HOME" || exit
+        git clone https://aur.archlinux.org/paru-bin.git
+        cd paru-bin || exit
+        makepkg -si --noconfirm
+        } || {
+        printf "\n%s%sFailed to install Paru. You may need to install it manually%s\n" "${BLD}" "${CRE}" "${CNC}"
+    }
+fi
+
+printf "%s%sChecking for required pacman packages...%s\n" "${BLD}" "${CBL}" "${CNC}"
+for package in "${dependencies[@]}"; do
+    if ! is_installed "$package"; then
+        if sudo pacman -S "$package" --noconfirm >/dev/null 2>> RiceError.log; then
+            printf "%s%s%s %shas been installed succesfully.%s\n" "${BLD}" "${CYE}" "$package" "${CBL}" "${CNC}"
+        else
+            printf "%s%s%s %shas not been installed correctly. See %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "$package" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+        fi
+    else
+        printf '%s%s%s %sis already installed on your system!%s\n' "${BLD}" "${CYE}" "$package" "${CGR}" "${CNC}"
+    fi
+done
+
+printf "%s%sChecking for required paru packages...%s\n" "${BLD}" "${CBL}" "${CNC}"
+for package in "${paru_dependencies[@]}"; do
+    if ! paru_is_installed "$package"; then
+        if paru -S "$package" --noconfirm --skipreview >/dev/null 2>> RiceError.log; then
+            printf "%s%s%s %shas been installed succesfully from paru.%s\n" "${BLD}" "${CYE}" "$package" "${CBL}" "${CNC}"
+        else
+            printf "%s%s%s %shas not been installed correctly from paru. See %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "$package" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+        fi
+    else
+        printf '%s%s%s %sis already installed on your system!%s\n' "${BLD}" "${CYE}" "$package" "${CGR}" "${CNC}"
+    fi
+done
+sleep 5
+clear
+
+logo "Cloning hyprland-dots"
+
+repo_url="https://github.com/16Hackley/hyprland-dots"
+repo_dir="$HOME/hyprland-dots"
+
+if [ -d "$repo_dir" ]; then
+    printf "Removing existing hyprland-dots repository\n"
+    rm -rf "$repo_dir"
+fi
+
+printf "Cloning hyprland-dots from %s\n" "$repo_url"
+git clone --depth=1 --branch master "$repo_url" "$repo_dir"
+sleep 2
+clear
+
+logo "Installing hyprland-dots..."
+printf "Copying files to directories..\n"
+
+# Created needed folders if not exists
+[ ! -d ~/.config ] && mkdir -p ~/.config
+[ ! -d ~/.themes ] && mkdir -p ~/.themes
+[ ! -d ~/.icons ] && mkdir -p ~/.icons
+
+# Copying config files to directories
+for dirs in ~/hyprland-dots/config/*; do
+    dir_name=$(basename "$dirs")
+    if cp -R "${dirs}" ~/.config/ 2>> RiceError.log; then
+        printf "%s%s%s %sconfiguration installed succesfully%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CGR}" "${CNC}"
+    else
+        printf "%s%s%s %sconfiguration failed to been installed, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+    fi
+done
+
+for dirs in ~/hyprland-dots/home/*; do
+    dir_name=$(basename "$dirs")
+    if cp -R "${dirs}" "$HOME" 2>> RiceError.log; then
+        printf "%s%s%s %sconfiguration installed succesfully%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CGR}" "${CNC}"
+    else
+        printf "%s%s%s %sconfiguration failed to been installed, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+    fi
+done
+
+if sudo cp -R ~/hyprland-dots/other-themes/sddm/catppuccin-mocha /usr/share/sddm/themes/ 2>> RiceError.log; then
+    sudo cp -r ~/hyprland-dots/other-themes/sddm/sddm.conf /etc/
+    printf "%s%ssddm-theme %sfolder copied succesfully!%s\n" "${BLD}" "${CYE}" "${CGR}" "${CNC}"
+else
+    printf "%s%ssddm-theme %sfolder failed to been copied, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+fi
+
+if sudo cp -R ~/hyprland-dots/other-themes/spotify/catppuccin  ~/.config.spicetify/Themes/ 2>> RiceError.log; then
+    spicetify backup
+    spicetify config current_theme catppuccin
+    spicetify config color_scheme mocha
+    spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1
+    spicetify apply
+    printf "%s%sspotify %stheme copied succesfully!%s\n" "${BLD}" "${CYE}" "${CGR}" "${CNC}"
+else
+    printf "%s%sspotify %stheme failed to been copied, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+fi
+
+if sudo cp -f "$HOME"/hyprland-dots/other-configs/networkmanager/resolv.conf "/etc/"; then
+    sudo chattr +i /etc/resolv.conf
+    printf "%s%snetwork manager %sconfig copied succesfully!%s\n" "${BLD}" "${CYE}" "${CGR}" "${CNC}"
+else
+    printf "%s%snetwork manager %sconfig failed to been copied, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+fi
+
+for dirs in ~/hyprland-dots/themes/*; do
+    dir_name=$(basename "$dirs")
+    if cp -R "${dirs}" ~/.themes/ 2>> RiceError.log; then
+        printf "%s%s%s %sconfiguration installed succesfully%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CGR}" "${CNC}"
+    else
+        printf "%s%s%s %sconfiguration failed to been installed, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+    fi
+done
+
+for dirs in ~/hyprland-dots/icons/*; do
+    dir_name=$(basename "$dirs")
+    if cp -R "${dirs}" ~/.icons/ 2>> RiceError.log; then
+        printf "%s%s%s %sconfiguration installed succesfully%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CGR}" "${CNC}"
+    else
+        printf "%s%s%s %sconfiguration failed to been installed, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+    fi
+done
+
+for dirs in ~/hyprland-dots/applications/*; do
+    dir_name=$(basename "$dirs")
+    if sudo cp -R "${dirs}" ~/usr/share/applications/ 2>> RiceError.log; then
+        printf "%s%s%s %sconfiguration installed succesfully%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CGR}" "${CNC}"
+    else
+        printf "%s%s%s %sconfiguration failed to been installed, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
+    fi
+done
+
+# Created Screenshots folder
+printf "%s%sCreating Screenshots folder%s\n" "${BLD}" "${CBL}" "${CNC}"
+sudo mkdir $HOME/Pictures/Screenshots
+
+printf "\n\n%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
+sleep 5
+
+# Configuring PostgreSQL
+printf "\n%s%sConfiguring PostgreSQL%s\n" "${BLD}" "${CYE}" "${CNC}"
+sudo mkdir /var/lib/postgres/data
+sudo chown postgres:postgres /var/lib/postgres/data
+sudo -u postgres initdb -D /var/lib/postgres/data
+
+# LIst of services to enable
+services=(bluetooth redis postgresql)
+
+# Starting services
+printf "%s%sStarting services...%s\n" "${BLD}" "${CBL}" "${CNC}"
+for service in "${services[@]}"; do
+    sudo systemctl enable "$service"
+    sudo systemctl start "$service"
+done
+
+sudo echo "postgres  ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+sudo passwd postgres -> hackley
+sudo -i -u postgres
+psql
+ALTER USER postgres WITH PASSWORD 'hackley';
+\q 
+createdb thehackleydjdb
+exit
+
+sleep 2
+
+logo "Changing default shell to fish"
+
+# Changing shell to fish
+if [[ $SHELL != "/usr/bin/fish" ]]; then
+    printf "\n%s%sChanging your shell to fish. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
+    chsh -s /usr/bin/fish
+    printf "%s%sShell changed to fish. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
+else
+    printf "%s%sYour shell is already fish\nGood bye! installation finished, now reboot%s\n" "${BLD}" "${CGR}" "${CNC}"
+fi

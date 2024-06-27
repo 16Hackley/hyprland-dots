@@ -1,0 +1,22 @@
+2024-06-27 07:08:52.432 [info] Extension host with pid 129941 started
+2024-06-27 07:08:52.432 [info] Skipping acquiring lock for /home/roman/.config/Code/User/workspaceStorage/6c7a42b259a5dea4646d89dc99573ce2.
+2024-06-27 07:08:52.471 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-06-27 07:08:52.537 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-06-27 07:08:52.539 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-06-27 07:08:52.555 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-06-27 07:08:52.593 [info] Eager extensions activated
+2024-06-27 07:08:52.629 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 07:08:52.630 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 07:09:09.010 [info] Extension host terminating: renderer closed the MessagePort
+2024-06-27 07:09:09.018 [info] Extension host with pid 129941 exiting with code 0
+2024-06-27 07:09:09.533 [info] Extension host with pid 130116 started
+2024-06-27 07:09:09.533 [info] Skipping acquiring lock for /home/roman/.config/Code/User/workspaceStorage/a74d32f8a30dc3afb8497b705c3be014.
+2024-06-27 07:09:09.590 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-06-27 07:09:09.643 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-06-27 07:09:09.665 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-06-27 07:09:09.685 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-06-27 07:09:09.719 [info] Eager extensions activated
+2024-06-27 07:09:09.754 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 07:09:09.755 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-06-27 07:09:34.679 [info] Extension host terminating: renderer closed the MessagePort
+2024-06-27 07:09:34.687 [info] Extension host with pid 130116 exiting with code 0
