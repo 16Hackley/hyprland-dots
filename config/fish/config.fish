@@ -10,6 +10,7 @@ alias please="sudo"
 alias xdd="sudo"
 alias xd="sudo"
 alias ff="fastfetch"
+alias pacman="sudo pacman"
 
 # Handy change dir shortcuts
 abbr .. 'cd ..'
