@@ -147,8 +147,8 @@ for dirs in ~/hyprland-dots/home/*; do
     fi
 done
 
-if sudo cp -R ~/hyprland-dots/other-themes/sddm/catppuccin-mocha /usr/share/sddm/themes/ 2>> RiceError.log; then
-    sudo cp -r ~/hyprland-dots/other-themes/sddm/sddm.conf /etc/
+if sudo cp -R ~/hyprland-dots/misc/themes/sddm/catppuccin-mocha /usr/share/sddm/themes/ 2>> RiceError.log; then
+    sudo cp -r ~/hyprland-dots/misc/themes/sddm/sddm.conf /etc/
     printf "%s%ssddm-theme %sfolder copied succesfully!%s\n" "${BLD}" "${CYE}" "${CGR}" "${CNC}"
 else
     printf "%s%ssddm-theme %sfolder failed to been copied, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
@@ -160,7 +160,7 @@ spicetify config color_scheme mocha
 spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1
 spicetify apply
 
-if sudo cp -f "$HOME"/hyprland-dots/other-configs/networkmanager/resolv.conf "/etc/"; then
+if sudo cp -f "$HOME"/hyprland-dots/misc/configs/networkmanager/resolv.conf "/etc/"; then
     sudo chattr +i /etc/resolv.conf
     printf "%s%snetwork manager %sconfig copied succesfully!%s\n" "${BLD}" "${CYE}" "${CGR}" "${CNC}"
 else
