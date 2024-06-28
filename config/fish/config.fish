@@ -11,6 +11,7 @@ alias xdd="sudo"
 alias xd="sudo"
 alias ff="fastfetch"
 alias pacman="sudo pacman"
+alias bot="ssh root@185.196.21.128"
 
 # Handy change dir shortcuts
 abbr .. 'cd ..'
