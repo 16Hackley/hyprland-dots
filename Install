@@ -44,15 +44,15 @@ dependencies=(pavucontrol nemo htop links fastfetch mpv unzip ttf-nerd-fonts-sym
               gcc libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender \
               pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland cmake wlroots mesa git \ 
               meson polkit xdg-desktop-portal-wlr transmission-gtk pulseaudio python imv mpv nemo grim slurp jq wofi \ 
-              htop ttf-nerd-fonts-symbols mousepad
-              ark zip unzip fastfetch discord telegram-desktop gamemode mangohud lib32-mangohud mesa lib32-mesa vulkan-radeon \
-              lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader wine-staging \
-              noto-fonts-emoji htop steam mpv feh gnome-disk-utility firefox \ 
-              ttf-inconsolata ttf-terminus-nerd imagemagick lxappearance lib32-gamemode xf86-video-amdgpu blueman \ 
+              htop ttf-nerd-fonts-symbols mousepad ark zip unzip fastfetch discord telegram-desktop gamemode mangohud \ 
+              lib32-mangohud mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader \ 
+              wine-staging noto-fonts-emoji htop steam mpv feh gnome-disk-utility firefox \ 
+              ttf-inconsolata ttf-terminus-nerd imagemagick lib32-gamemode xf86-video-amdgpu blueman \ 
               gamescope alacritty starship polkit-gnome ttf-jetbrains-mono glibc redis postgresql \ 
               jdk17-openjdk jre17-openjdk jre17-openjdk-headless openssh bitwarden)
 
-paru_dependencies=(spotify vesktop heroic-games-launcher hyprlock swaync  swww wlogout spicetify-cli spicetify-marketplace-bin flameshot-git)
+paru_dependencies=(spotify vesktop heroic-games-launcher hyprlock swaync swww wlogout spicetify-cli \ 
+                   spicetify-marketplace-bin flameshot-git visual-studio-code-bin)
 
 is_installed() {
     pacman -Q "$1" &> /dev/null
