@@ -204,8 +204,9 @@ for dirs in ~/hyprland-dots/applications/*; do
 done
 
 # Created Screenshots folder
-printf "%s%sCreating Screenshots folder%s\n" "${BLD}" "${CBL}" "${CNC}"
+printf "%s%sCreating folders in Pictures%s\n" "${BLD}" "${CBL}" "${CNC}"
 sudo mkdir $HOME/Pictures/Screenshots
+sudo mkdir $HOME/Pictures/iPhone
 
 printf "\n\n%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 5
