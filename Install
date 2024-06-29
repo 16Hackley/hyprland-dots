@@ -49,7 +49,7 @@ dependencies=(pavucontrol nemo htop links fastfetch mpv unzip ttf-nerd-fonts-sym
               wine-staging noto-fonts-emoji htop steam mpv feh gnome-disk-utility firefox \ 
               ttf-inconsolata ttf-terminus-nerd imagemagick lib32-gamemode xf86-video-amdgpu blueman \ 
               gamescope alacritty starship polkit-gnome ttf-jetbrains-mono glibc redis postgresql \ 
-              jdk17-openjdk jre17-openjdk jre17-openjdk-headless openssh bitwarden)
+              jdk17-openjdk jre17-openjdk jre17-openjdk-headless openssh bitwarden kdeconnect)
 
 paru_dependencies=(spotify vesktop heroic-games-launcher hyprlock swaync swww wlogout spicetify-cli \ 
                    spicetify-marketplace-bin flameshot-git visual-studio-code-bin)
