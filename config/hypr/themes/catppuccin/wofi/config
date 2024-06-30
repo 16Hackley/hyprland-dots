@@ -9,7 +9,7 @@ allow_images=true
 normal_window=true
 columns=1
 image_size=20
-prompt=Search
+prompt=Spotlight
 term=alacritty
 
 ______________________________________________________________________________

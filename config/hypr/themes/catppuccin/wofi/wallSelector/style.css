@@ -1,6 +1,6 @@
 *{
 	font-family: "SF Pro Display, Symbols Nerd Font";
-	font-size: 16px;
+	font-size: 18px;
   }
   
   window {
@@ -45,14 +45,9 @@
 	}
 	
 	#entry:selected {
-	  background-color: #b4befe;
+	  background-color: #45475a;
 	  /* text-decoration: underline; */
 	  /* text-decoration-color: white; */
 	}
-	
-	#text:selected {
-	  /* background-color: red; */
-	  text-decoration: underline;
-	  text-decoration-color: white;
-	}
+
   

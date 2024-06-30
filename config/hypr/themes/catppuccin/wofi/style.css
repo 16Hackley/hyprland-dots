@@ -45,13 +45,9 @@ window {
   }
   
   #entry:selected {
-    background-color: #b4befe;
+    background-color: #45475a;
     /* text-decoration: underline; */
     /* text-decoration-color: white; */
   }
   
-  #text:selected {
-    /* background-color: red; */
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
+
