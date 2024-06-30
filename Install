@@ -140,15 +140,6 @@ for dirs in ~/hyprland-dots/config/*; do
     fi
 done
 
-for dirs in ~/hyprland-dots/face/*; do
-    dir_name=$(basename "$dirs")
-    if cp -R "${dirs}" ~/.face/ 2>> RiceError.log; then
-        printf "%s%s%s %sconfiguration installed succesfully%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CGR}" "${CNC}"
-    else
-        printf "%s%s%s %sconfiguration failed to been installed, see %sRiceError.log %sfor more details.%s\n" "${BLD}" "${CYE}" "${dir_name}" "${CRE}" "${CBL}" "${CRE}" "${CNC}"
-    fi
-done
-
 for dirs in ~/hyprland-dots/home/*; do
     dir_name=$(basename "$dirs")
     if cp -R "${dirs}" "$HOME" 2>> RiceError.log; then

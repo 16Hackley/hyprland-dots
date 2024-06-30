@@ -1,30 +1,30 @@
 [colors.bright]
-black = "#272a34"
-blue = "#51a2da"
-cyan = "#55ddff"
-green = "#aaffaa"
-magenta = "#ff80e5"
-red = "#ff0066"
-white = "#f2f2f2"
-yellow = "#ffc762"
+black = "#45475a"
+blue = "#89b4fa"
+cyan = "#94e2d5"
+green = "#a6e3a1"
+magenta = "#cba6f7"
+red = "#f38ba8"
+white = "#bac2de"
+yellow = "#f9e2af"
 
 [colors.cursor]
 cursor = "CellForeground"
 text = "CellBackground"
 
 [colors.normal]
-black = "#272a34"
-blue = "#51a2da"
-cyan = "#55ddff"
-green = "#aaffaa"
-magenta = "#ff80e5"
-red = "#ff0066"
-white = "#f2f2f2"
-yellow = "#ffc762"
+black = "#45475a"
+blue = "#89b4fa"
+cyan = "#94e2d5"
+green = "#a6e3a1"
+magenta = "#cba6f7"
+red = "#f38ba8"
+white = "#bac2de"
+yellow = "#f9e2af"
 
 [colors.primary]
-background = "#1e1e2e"
-foreground = "#f9f9f9"
+background = "#1e1e2e"  # "#1e1e2e" closely matches the Mocha base background color
+foreground = "#cdd6f4"
 
 [font]
 size = 10.0
@@ -46,4 +46,3 @@ opacity = 0.90
 [window.padding]
 x = 15
 y = 15
-
