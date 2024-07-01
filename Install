@@ -55,7 +55,7 @@ dependencies=(pavucontrol nemo htop links fastfetch mpv unzip ttf-nerd-fonts-sym
 
 paru_dependencies=(spotify vesktop heroic-games-launcher hyprlock swaync swww wlogout spicetify-cli \ 
                    spicetify-marketplace-bin flameshot-git visual-studio-code-bin cliphist hyprpicker-git \
-                   xwaylandvideobridge )
+                   xwaylandvideobridge hypridle)
 
 is_installed() {
     pacman -Q "$1" &> /dev/null
