@@ -50,7 +50,7 @@ dependencies=(pavucontrol nemo htop links fastfetch mpv unzip ttf-nerd-fonts-sym
               ttf-inconsolata ttf-terminus-nerd imagemagick lib32-gamemode xf86-video-amdgpu blueman \ 
               gamescope alacritty starship polkit-gnome ttf-jetbrains-mono glibc redis postgresql \ 
               jdk17-openjdk jre17-openjdk jre17-openjdk-headless openssh bitwarden kdeconnect xdg-desktop-portal-hyprland \
-              pacman-contrib qt5-imageformats ffmpegthumbs qt5ct qt6ct qt5-wayland qt6-wayland polkit-kde-agent \
+              pacman-contrib qt5-imageformats ffmpegthumbs qt5ct qt6ct qt5-wayland qt6-wayland \
               wireplumber udiskie)
 
 paru_dependencies=(spotify vesktop heroic-games-launcher hyprlock swaync swww wlogout spicetify-cli \ 
