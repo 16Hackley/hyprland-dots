@@ -20,9 +20,9 @@ RANDOM_PIC=${PICS[ $RANDOM % ${#PICS[@]} ]}
 RANDOM_PIC_NAME="${#PICS[@]}. random"
 
 # WOFI STYLES
-CONFIG="$HOME/.config/hypr/themes/catppuccin/wofi/wallSelector/config"
-STYLE="$HOME/.config/hypr/themes/catppuccin/wofi/wallSelector/style.css"
-COLORS="$HOME/.config/hypr/themes/catppuccin/wofi/wallSelector/colors"
+CONFIG="$HOME/.config/hypr/themes/catppuccin/wofi/config"
+STYLE="$HOME/.config/hypr/themes/catppuccin/wofi/style.css"
+COLORS="$HOME/.config/hypr/themes/catppuccin/wofi/colors"
 
 # to check if swaybg is running
 if [[ $(pidof swaybg) ]]; then
@@ -31,7 +31,7 @@ fi
 
 ## Wofi Command
 wofi_command="wofi --show dmenu \
-			--prompt choose... \
+			--prompt Wallpapers \
 			--conf $CONFIG --style $STYLE --color $COLORS \
 			--width=$WIDTH% --height=$HEIGHT% \
 			--cache-file=/dev/null \
