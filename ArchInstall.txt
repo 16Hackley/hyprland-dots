@@ -1,0 +1,135 @@
+# 1. Setting up Time and Disk Partitioning
+
+timedatectl set-ntp true
+
+cfdisk /dev/sda
+# Use cfdisk to partition the disk:
+# - Choose GPT
+# - Create a 350M partition for EFI System
+# - Create a 4G partition for Linux swap
+# - Use the remaining space for Linux filesystem
+
+# Example layout:
+# - /dev/sda1 350M EFI System
+# - /dev/sda2 4G Linux swap
+# - /dev/sda3 Remaining space Linux filesystem
+
+# 2. Creating and Mounting File Systems
+
+mkfs.btrfs -f /dev/sda3  # Format root partition
+mkfs.fat -F32 /dev/sda1  # Format EFI partition
+
+# Mount root partition and create subvolumes
+mount /dev/sda3 /mnt
+cd /mnt
+btrfs subvolume create ./@
+btrfs subvolume create ./@home
+cd
+umount /mnt
+
+# Mount root and home subvolumes
+mount -o rw,noatime,compress=zstd:3,ssd,ssd_spread,discard=async,space_cache=v2,subvol=/@ /dev/sda3 /mnt
+mkdir /mnt/home
+mount -o rw,noatime,compress=zstd:3,ssd,ssd_spread,discard=async,space_cache=v2,subvol=/@home /dev/sda3 /mnt/home
+
+# Mount EFI partition
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+
+# 3. Installing Base System with Liquorix Kernel
+
+pacstrap /mnt base base-devel linux linux-headers nano networkmanager btrfs-progs sddm realtime-privileges amd-ucode linux-firmware git
+
+# 4. Setting up Swap
+
+mkswap /dev/sda2
+swapon /dev/sda2
+
+# 5. Generating fstab
+
+genfstab -U /mnt >> /mnt/etc/fstab
+btrfs filesystem label /mnt "Arch"
+
+# 6. Chroot and System Configuration
+
+arch-chroot /mnt
+
+# Time and locale configuration
+ln -sf /usr/share/zoneinfo/Europe/Kyiv /etc/localtime
+hwclock --systohc
+
+# Locale settings
+nano /etc/locale.gen
+# Uncomment en_US.UTF-8 UTF-8 and ru_RU.UTF-8 UTF-8
+locale-gen
+
+nano /etc/locale.conf
+# Add:
+# LANG=en_US.UTF-8
+# (or LANG=ru_RU.UTF-8 for Russian)
+
+nano /etc/vconsole.conf
+# Add:
+# KEYMAP=ru
+# FONT=cyr-sun16
+
+# Hostname and network settings
+nano /etc/hostname
+# Add: Roman
+
+nano /etc/hosts
+# Add:
+# 127.0.0.1 localhost
+# ::1 localhost
+# 127.0.1.1 Roman
+
+passwd
+# Set root password (e.g., 1111)
+
+# Enable necessary services
+systemctl enable NetworkManager gdm
+systemctl mask NetworkManager-wait-online
+
+# 7. Installing Bootloader
+
+bootctl install
+
+nano /boot/loader/loader.conf
+# Add:
+# default arch
+# timeout 3
+# console-mode auto
+# editor no
+
+nano /boot/loader/entries/linux.conf
+# Add:
+# title linux
+# linux /vmlinuz-linux
+# initrd /amd-ucode.img
+# initrd /initramfs-linux.img
+# options root="LABEL=Arch" rw rootflags=subvol=@ nowatchdog rootfstype=btrfs
+
+# Exit chroot and reboot
+Ctrl+D
+reboot
+
+# 8. Creating User
+
+# After rebooting:
+# Enter tty (if necessary) with Ctrl + Alt + F2
+root
+# Enter root password (1111)
+
+# Create user
+useradd -mG realtime,wheel roman
+passwd roman
+# Set password for user 'roman' (e.g., 1111)
+
+reboot
+
+# 9. Installing Hyprland
+
+# After logging into the system:
+curl https://raw.githubusercontent.com/16Hackley/hyprland-dots/master/Install -o $HOME/Install
+chmod +x Install
+./Install
